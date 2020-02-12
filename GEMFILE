@@ -1,4 +1,4 @@
-Source "Rubygems.org"
+source "https://rubygems.org"
 
 gem "pry"
 gem "nokogiri"
