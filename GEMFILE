@@ -1,0 +1,4 @@
+SOURCE "Rubygems.org"
+
+gem "pry"
+gem "nokogiri"
