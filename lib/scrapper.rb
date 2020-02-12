@@ -21,8 +21,9 @@ def artist
     artists = doc.css("div.ye-chart-item__artist")
     artists.each do |artist|
         artist = Artist.new(artist)
+        binding.pry
     end
-    
+
 end
 
 def peak 
