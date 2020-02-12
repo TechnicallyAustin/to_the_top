@@ -14,7 +14,7 @@ def rank
 end
 
 def title
-    titles = doc.css("div.ye-chart-item__title").first.text
+    titles = doc.css("div.ye-chart-item__title")
 end
 
 def artist 
@@ -27,15 +27,15 @@ def artist
 end
 
 def peak 
-   peaks =  doc.css("span.decade-end-chart-item__peak-info-rank").first.text
+   peaks =  doc.css("span.decade-end-chart-item__peak-info-rank")
 end
 
 def peak_date
-    dates = doc.css("span.decade-end-chart-item__peak-info-date").first.text
+    dates = doc.css("span.decade-end-chart-item__peak-info-date")
 end
 
 def chart
-   entire_chart =  doc.css("div.chart-details__item-list").first.text
+   entire_chart =  doc.css("div.chart-details__item-list")
 end
 
 
