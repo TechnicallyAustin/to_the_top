@@ -9,8 +9,10 @@ attr_reader :name, :song, :position, :peaks,
 def initialize(name)
     @name = Scrape.name(name)
     @@all << self 
+
 end
-binding.pry 
+
+
 
 
 end

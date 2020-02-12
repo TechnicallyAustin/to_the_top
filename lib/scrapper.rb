@@ -10,18 +10,23 @@ attr_accessor :artist, :position, :song, :featuring
 doc = Nokogiri::HTML(open("https://www.billboard.com/charts/decade-end/hot-100"))
 
 def rank
+    @rank = []
     ranking = doc.css("div.ye-chart-item__rank")
 end
 
 def title
+    @title = []
+    Song.all 
     titles = doc.css("div.ye-chart-item__title")
 end
 
 def artist 
+    Artist.all 
+
     artists = doc.css("div.ye-chart-item__artist")
     artists.each do |artist|
         artist = Artist.new(artist)
-        binding.pry
+        #binding.pry
     end
 
 end
