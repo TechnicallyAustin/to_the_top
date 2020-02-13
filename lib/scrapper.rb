@@ -68,8 +68,11 @@ def peak_date
 end
 
 def chart_elements
-  @charting 
+  @charting_arr = @@doc.css("article.ye-chart-item").text.split("\n")
+  @charting_arr.delete_if { |i| i == "" || i == " "}
     #lists each individual chart element
+    new_arr = @charting_arr.each_slice(3) {|i| p i}
+    ## ^ This list each chat item as a single array element. ##
     binding.pry 
 end
 
