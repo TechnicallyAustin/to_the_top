@@ -19,18 +19,23 @@ def initialize
 end
 
 def rank
-    @rank_arr = @rank 
+    ### Done ### 
+    @rank_arr = @rank.split("\n").delete_if { |i| i == "" || i == " "}
+    @rank_arr 
     #retrieves rank for each chart element
     binding.pry 
 end
 
 def title
-    @titles_arr
+    ### Done ###
+    @title_arr = @title.split("\n").delete_if { |i| i == "" || i == " "}
+    @title_arr
     binding.pry 
     #retrieves song titles for each chart element and stores them in an array.
 end
 
 def artist 
+    ### Done ###
     @artist_arr = @artist
     @split_artist = @artist_arr.split("\n")
     @final_arr = @split_artist.delete_if {|i| i == "" || i == " "}
@@ -43,12 +48,15 @@ end
 
 
 def peak 
-   @peak_arr = @peak 
+    ### Done, *remove quotes from array elements ###
+   @peak_arr = @peak.split(" Peak  Position")
+   @peak_arr 
    #retrieves peak position for all chart elements 
    binding.pry 
 end
 
 def peak_date
+    ### DOne * remove quotes from array elements ###
     @peak_dates_arr = @peak_date.split(" Peak Date")
     #removes the "Peak Date" string from each element
     #retrieves peak dates for all chart elements 
@@ -67,8 +75,10 @@ end
 
 
 def chart
+    ##### NOT DONE ####
    @entire_chart =  @charting 
    # Shows the entire chart printed out
+   # Build this method using the other methods you created. you need to format this chart.
    binding.pry 
 end
 
