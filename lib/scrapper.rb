@@ -26,12 +26,8 @@ end
 
 def artist 
     artists = @doc.css("div.ye-chart-item__artist").text
-
-    artists.each do |artist|
-        artist = Artist.new(artist)
-    end
-
 end
+
 
 def peak 
    peaks =  @doc.css("span.decade-end-chart-item__peak-info-rank").text
@@ -54,6 +50,7 @@ end
 # peak: doc.css("span.decade-end-chart-item__peak-info-rank").first.text
 # peak date: doc.css("span.decade-end-chart-item__peak-info-date").first.text
 # entire chart: doc.css("div.chart-details__item-list").first.text
+# each chart element: doc.css("div.ye-chart-item").first.text
 # website "https://www.billboard.com/charts/decade-end/hot-100"
 
 
