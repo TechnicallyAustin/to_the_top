@@ -37,6 +37,7 @@ def artist
     @artist_arr = @artist
     @split_artist = @artist_arr.split("/n")
     @final_arr = @split_artist.delete_if {|i| i == ""}
+    binding.pry 
 
    
     #retrieves artist name for all chart elements 
@@ -71,7 +72,7 @@ end
 
 end
 scrape = Scrape.new
-binding.pry
+#binding.pry
 #Nokogiri BB100 CSS Selectors
 # ------------------------
 # rank:  doc.css("div.ye-chart-item__rank").first.text
