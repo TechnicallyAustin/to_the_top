@@ -5,7 +5,7 @@ require 'open-uri'
 class Scrape
 # extend
 # include  
-attr_accessor :artist, :position, :song, :featuring
+attr_accessor :artist, :position, :song, :year, :chart, :title, :peak_date, :peak 
 @@all = []
 def initialize
 @doc = Nokogiri::HTML(open("https://www.billboard.com/charts/decade-end/hot-100"))
@@ -14,23 +14,22 @@ end
 
 def rank
     @rank = []
-    @rank = @doc.css("div.ye-chart-item__rank").text
-    binding.pry
+    rank = @doc.css("div.ye-chart-item__rank").text
+    
 end
 
 def title
     @titles = []
-    Song.all 
-    @titles = @doc.css("div.ye-chart-item__title").text
+    
+    titles = @doc.css("div.ye-chart-item__title").text
 end
 
 def artist 
-    Artist.all 
+    artists = @doc.css("div.ye-chart-item__artist").text
 
-    artists = doc.css("div.ye-chart-item__artist").text
     artists.each do |artist|
         artist = Artist.new(artist)
-        
+        binding.pry
     end
 
 end
@@ -62,6 +61,5 @@ end
 
 end
 scrape = Scrape.new
-binding.pry 
 
 
