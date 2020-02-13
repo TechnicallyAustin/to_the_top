@@ -29,7 +29,6 @@ def artist
 
     artists.each do |artist|
         artist = Artist.new(artist)
-        binding.pry
     end
 
 end
