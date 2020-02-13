@@ -37,6 +37,9 @@ def peak_date
     dates = @doc.css("span.decade-end-chart-item__peak-info-date").text
 end
 
+def chart_elements
+    chart_elements = @doc.css("article.ye-chart-item").first.text
+
 def chart
    entire_chart =  @doc.css("div.chart-details__item-list").text 
 end
