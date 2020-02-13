@@ -7,16 +7,16 @@ class Scrape
 # include  
 attr_accessor :artist, :position, :song, :year, :chart, :title, :peak_date, :peak 
 @@all = []
-@@rank = doc.css("div.ye-chart-item__rank").text
-@@title = doc.css("div.ye-chart-item__title").text
-@@artist = doc.css("div.ye-chart-item__artist").text
-@@peak = doc.css("span.decade-end-chart-item__peak-info-rank").text
-@@peak_date = doc.css("span.decade-end-chart-item__peak-info-date").text
-@@entire_chart = doc.css("div.chart-details__item-list").text
-@@chart_elements = doc.css("article.ye-chart-item").text
-def initialize
 @doc = Nokogiri::HTML(open("https://www.billboard.com/charts/decade-end/hot-100"))
-
+def initialize
+    @rank = @doc.css("div.ye-chart-item__rank").text
+    @title = @doc.css("div.ye-chart-item__title").text
+    @artist = @doc.css("div.ye-chart-item__artist").text
+    @peak = @doc.css("span.decade-end-chart-item__peak-info-rank").text
+    @peak_date = @doc.css("span.decade-end-chart-item__peak-info-date").text
+    @entire_chart = @doc.css("div.chart-details__item-list").text
+    @chart_elements = @doc.css("article.ye-chart-item").text
+    
 end
 
 def rank
@@ -50,13 +50,16 @@ end
 def chart_elements
     chart_elements = @doc.css("article.ye-chart-item").first.text
     #lists each individual chart element
+end
+
 
 def chart
    entire_chart =  @doc.css("div.chart-details__item-list").text
    # Shows the entire chart printed out
 end
 
-
+end
+scrape = Scrape.new
 #Nokogiri BB100 CSS Selectors
 # ------------------------
 # rank:  doc.css("div.ye-chart-item__rank").first.text
@@ -78,10 +81,4 @@ end
 #     @peak_date = specifiy the peak_date using the CSS selector
 #     @title = specifiy the title using the CSS selector
 #     @rank = specifiy the rank using the CSS selector
-
-
-
-
-end
-scrape = Scrape.new
 binding.pry
