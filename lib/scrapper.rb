@@ -35,6 +35,9 @@ end
 
 def artist 
     @artist_arr = @artist
+    @split_artist = @artist_arr.split("/n")
+    @split_artist.delete_if {|i| i == ""}
+
    
     #retrieves artist name for all chart elements 
 end
