@@ -7,11 +7,12 @@ class Scrape
 # include  
 attr_accessor :artist, :position, :song, :featuring
 @@all = []
+def initialize
 doc = Nokogiri::HTML(open("https://www.billboard.com/charts/decade-end/hot-100"))
+end
 
 def rank
-    @rank = []
-    ranking = doc.css("div.ye-chart-item__rank")
+    @rank = doc.css("div.ye-chart-item__rank")
 end
 
 def title
@@ -43,7 +44,12 @@ def chart
    entire_chart =  doc.css("div.chart-details__item-list")
 end
 
-
+scrape = Scrape.new
+chart = Scrape.chart 
+rank = Scrape.rank
+peak = Scrape.peak
+year = Scrape.year
+artist = Scrape.artist 
 
 #Nokogiri BB100 CSS Selectors
 # ------------------------
