@@ -50,12 +50,24 @@ end
 # peak: doc.css("span.decade-end-chart-item__peak-info-rank").first.text
 # peak date: doc.css("span.decade-end-chart-item__peak-info-date").first.text
 # entire chart: doc.css("div.chart-details__item-list").first.text
-# each chart element: doc.css("div.ye-chart-item").first.text
+# chart element: doc.css("article.ye-chart-item").first.text
 # website "https://www.billboard.com/charts/decade-end/hot-100"
+
+
+
+# Depending on which class this goes in associations will need to be added.
+
+# chart element each do |song_card|
+#     @artist = specifiy the artist using the CSS selector
+#     @peak = specifiy the peak using the CSS selector
+#     @peak_date = specifiy the peak_date using the CSS selector
+#     @title = specifiy the title using the CSS selector
+#     @rank = specifiy the rank using the CSS selector
+
 
 
 
 end
 scrape = Scrape.new
-
+binding.pry
 
