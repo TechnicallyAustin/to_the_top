@@ -16,51 +16,59 @@ def initialize
     @peak_date = @doc.css("span.decade-end-chart-item__peak-info-date").text
     @entire_chart = @doc.css("div.chart-details__item-list").text
     @charting = @doc.css("article.ye-chart-item").text
-    binding.pry
-    
 end
 
 def rank
-    @rank = []
-    rank = @doc.css("div.ye-chart-item__rank").text
+    @rank_arr = @rank 
     #retrieves rank for each chart element
 end
 
 def title
-    @titles = []
-    titles = @doc.css("div.ye-chart-item__title").text
-    #retrieves song titles for each chart element
+    @doc.css("div.ye-chart-item__title").each do |titles|
+        @titles_arr << titles
+    end
+    @titles_arr
+
+
+    #retrieves song titles for each chart element and stores them in an array.
 end
 
 def artist 
-    artists = @doc.css("div.ye-chart-item__artist").text
+    @artist_arr = @artist
+   
     #retrieves artist name for all chart elements 
 end
 
 
 def peak 
-   peaks =  @doc.css("span.decade-end-chart-item__peak-info-rank").text
+   @peak_arr = @peak 
    #retrieves peak position for all chart elements 
 end
 
 def peak_date
-    dates = @doc.css("span.decade-end-chart-item__peak-info-date").text
+    @peak_dates_arr = @peak_date.split(" Peak Date")
+    #removes the "Peak Date" string from each element
     #retrieves peak dates for all chart elements 
+    #stores each element in an array
+    #=> peak_dates.count == 100
+
+    
 end
 
 def chart_elements
-    chart_elements = @doc.css("article.ye-chart-item").text
+  @charting 
     #lists each individual chart element
 end
 
 
 def chart
-   entire_chart =  @doc.css("div.chart-details__item-list").text
+   @entire_chart =  @doc.css("div.chart-details__item-list").text
    # Shows the entire chart printed out
 end
 
 end
 scrape = Scrape.new
+binding.pry
 #Nokogiri BB100 CSS Selectors
 # ------------------------
 # rank:  doc.css("div.ye-chart-item__rank").first.text
