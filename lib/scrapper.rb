@@ -8,48 +8,45 @@ class Scrape
 attr_accessor :artist, :position, :song, :featuring
 @@all = []
 def initialize
-doc = Nokogiri::HTML(open("https://www.billboard.com/charts/decade-end/hot-100"))
+@doc = Nokogiri::HTML(open("https://www.billboard.com/charts/decade-end/hot-100"))
+
 end
 
 def rank
-    @rank = doc.css("div.ye-chart-item__rank")
+    @rank = []
+    @rank = @doc.css("div.ye-chart-item__rank").text
+    binding.pry
 end
 
 def title
-    @title = []
+    @titles = []
     Song.all 
-    titles = doc.css("div.ye-chart-item__title")
+    @titles = @doc.css("div.ye-chart-item__title").text
 end
 
 def artist 
     Artist.all 
 
-    artists = doc.css("div.ye-chart-item__artist")
+    artists = doc.css("div.ye-chart-item__artist").text
     artists.each do |artist|
         artist = Artist.new(artist)
-        #binding.pry
+        
     end
 
 end
 
 def peak 
-   peaks =  doc.css("span.decade-end-chart-item__peak-info-rank")
+   peaks =  @doc.css("span.decade-end-chart-item__peak-info-rank").text
 end
 
 def peak_date
-    dates = doc.css("span.decade-end-chart-item__peak-info-date")
+    dates = @doc.css("span.decade-end-chart-item__peak-info-date").text
 end
 
 def chart
-   entire_chart =  doc.css("div.chart-details__item-list")
+   entire_chart =  @doc.css("div.chart-details__item-list").text 
 end
 
-scrape = Scrape.new
-chart = Scrape.chart 
-rank = Scrape.rank
-peak = Scrape.peak
-year = Scrape.year
-artist = Scrape.artist 
 
 #Nokogiri BB100 CSS Selectors
 # ------------------------
@@ -64,5 +61,7 @@ artist = Scrape.artist
 
 
 end
+scrape = Scrape.new
+binding.pry 
 
 
