@@ -73,6 +73,8 @@ def chart_elements
     #lists each individual chart element
     new_arr = @charting_arr.each_slice(3) {|i| p i}
     ## ^ This list each chat item as a single array element. ##
+    # new_arr[0] == [Rank, Title, artist]
+    # new_arr[1] == [peak position, peak date, ]
     binding.pry 
 end
 
