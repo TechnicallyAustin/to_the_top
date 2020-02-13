@@ -7,4 +7,7 @@ class Peak
 
     def peaked
         Scrape.rank.each do |rank|
-            
+        end
+
+    end
+    
