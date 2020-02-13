@@ -7,6 +7,13 @@ class Scrape
 # include  
 attr_accessor :artist, :position, :song, :year, :chart, :title, :peak_date, :peak 
 @@all = []
+@@rank = doc.css("div.ye-chart-item__rank").text
+@@title = doc.css("div.ye-chart-item__title").text
+@@artist = doc.css("div.ye-chart-item__artist").text
+@@peak = doc.css("span.decade-end-chart-item__peak-info-rank").text
+@@peak_date = doc.css("span.decade-end-chart-item__peak-info-date").text
+@@entire_chart = doc.css("div.chart-details__item-list").text
+@@chart_elements = doc.css("article.ye-chart-item").text
 def initialize
 @doc = Nokogiri::HTML(open("https://www.billboard.com/charts/decade-end/hot-100"))
 
@@ -15,33 +22,38 @@ end
 def rank
     @rank = []
     rank = @doc.css("div.ye-chart-item__rank").text
-    
+    #retrieves rank for each chart element
 end
 
 def title
     @titles = []
-    
     titles = @doc.css("div.ye-chart-item__title").text
+    #retrieves song titles for each chart element
 end
 
 def artist 
     artists = @doc.css("div.ye-chart-item__artist").text
+    #retrieves artist name for all chart elements 
 end
 
 
 def peak 
    peaks =  @doc.css("span.decade-end-chart-item__peak-info-rank").text
+   #retrieves peak position for all chart elements 
 end
 
 def peak_date
     dates = @doc.css("span.decade-end-chart-item__peak-info-date").text
+    #retrieves peak dates for all chart elements 
 end
 
 def chart_elements
     chart_elements = @doc.css("article.ye-chart-item").first.text
+    #lists each individual chart element
 
 def chart
-   entire_chart =  @doc.css("div.chart-details__item-list").text 
+   entire_chart =  @doc.css("div.chart-details__item-list").text
+   # Shows the entire chart printed out
 end
 
 
@@ -73,4 +85,3 @@ end
 end
 scrape = Scrape.new
 binding.pry
-
