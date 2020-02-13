@@ -7,15 +7,16 @@ class Scrape
 # include  
 attr_accessor :artist, :position, :song, :year, :chart, :title, :peak_date, :peak 
 @@all = []
-@doc = Nokogiri::HTML(open("https://www.billboard.com/charts/decade-end/hot-100"))
 def initialize
+    @doc = Nokogiri::HTML(open("https://www.billboard.com/charts/decade-end/hot-100"))
     @rank = @doc.css("div.ye-chart-item__rank").text
     @title = @doc.css("div.ye-chart-item__title").text
     @artist = @doc.css("div.ye-chart-item__artist").text
     @peak = @doc.css("span.decade-end-chart-item__peak-info-rank").text
     @peak_date = @doc.css("span.decade-end-chart-item__peak-info-date").text
     @entire_chart = @doc.css("div.chart-details__item-list").text
-    @chart_elements = @doc.css("article.ye-chart-item").text
+    @charting = @doc.css("article.ye-chart-item").text
+    binding.pry
     
 end
 
@@ -48,7 +49,7 @@ def peak_date
 end
 
 def chart_elements
-    chart_elements = @doc.css("article.ye-chart-item").first.text
+    chart_elements = @doc.css("article.ye-chart-item").text
     #lists each individual chart element
 end
 
@@ -81,4 +82,4 @@ scrape = Scrape.new
 #     @peak_date = specifiy the peak_date using the CSS selector
 #     @title = specifiy the title using the CSS selector
 #     @rank = specifiy the rank using the CSS selector
-binding.pry
+#binding.pry
