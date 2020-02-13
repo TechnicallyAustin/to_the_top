@@ -21,32 +21,31 @@ end
 def rank
     @rank_arr = @rank 
     #retrieves rank for each chart element
+    binding.pry 
 end
 
 def title
-    @doc.css("div.ye-chart-item__title").each do |titles|
-        @titles_arr << titles
-    end
     @titles_arr
-
-
+    binding.pry 
     #retrieves song titles for each chart element and stores them in an array.
 end
 
 def artist 
     @artist_arr = @artist
-    @split_artist = @artist_arr.split("/n")
-    @final_arr = @split_artist.delete_if {|i| i == ""}
+    @split_artist = @artist_arr.split("\n")
+    @final_arr = @split_artist.delete_if {|i| i == "" || i == " "}
     binding.pry 
 
    
     #retrieves artist name for all chart elements 
+    # returns the list of artist formatted in an array.
 end
 
 
 def peak 
    @peak_arr = @peak 
    #retrieves peak position for all chart elements 
+   binding.pry 
 end
 
 def peak_date
@@ -55,6 +54,7 @@ def peak_date
     #retrieves peak dates for all chart elements 
     #stores each element in an array
     #=> peak_dates.count == 100
+    binding.pry
 
     
 end
@@ -62,17 +62,19 @@ end
 def chart_elements
   @charting 
     #lists each individual chart element
+    binding.pry 
 end
 
 
 def chart
    @entire_chart =  @charting 
    # Shows the entire chart printed out
+   binding.pry 
 end
 
 end
 scrape = Scrape.new
-#binding.pry
+binding.pry
 #Nokogiri BB100 CSS Selectors
 # ------------------------
 # rank:  doc.css("div.ye-chart-item__rank").first.text
