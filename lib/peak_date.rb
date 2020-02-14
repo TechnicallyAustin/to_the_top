@@ -1,4 +1,4 @@
-require_relative '../lib/scrapper.rb'
+require '/lib/scrapper.rb'
 require_relative '../lib/module.rb'
 require 'pry'
 require 'nokogiri'
@@ -18,6 +18,9 @@ class PeakDate
     def self.all
         @@all 
     end
+
+end
+
 
 
 

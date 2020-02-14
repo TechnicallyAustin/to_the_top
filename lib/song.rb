@@ -1,4 +1,5 @@
 require_relative '../lib/scrapper.rb'
+require_relative '../lib/module.rb'
 require 'pry'
 require 'nokogiri'
 require 'open-uri'
