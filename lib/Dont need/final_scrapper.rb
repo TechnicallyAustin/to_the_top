@@ -25,7 +25,7 @@ class FinalScrapper
     
     def rank
         @@chart_arr.each { |i| @ranks << i[0] }
-        @ranks 
+        @ranks.each {|rank| rank = Rank.new(rank)}
         binding.pry 
     end
 
@@ -49,6 +49,18 @@ class FinalScrapper
         @peak_dates.chomp
         #remove the words "Peak Date"
     end 
+
+    # def class_builder
+    #     @@chart_arr.each do |row|
+    #         row[0] = Rank.new(row[0])
+    #         row[1] = Song.new(row[1])
+    #         row[2] = Artist.new(row[2])
+    #         row[3] = Peak.new(row[3])
+    #         row[4] = PeakDate.new(row[4])
+    #     end 
+    #     binding.pry 
+    # end
+
 
 
 

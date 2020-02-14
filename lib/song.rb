@@ -1,7 +1,7 @@
+require_relative '../lib/scrapper.rb'
 require 'pry'
 require 'nokogiri'
 require 'open-uri'
-require_relative '../lib/scrapper.rb'
 
 class Song
 @@all = []
