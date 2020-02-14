@@ -12,8 +12,11 @@ def initialize(peak)
     @@all << self
     binding.pry 
 end
-
+ def self.all
+    @@all
+ end
+ 
 
 
 end
-    
+sc

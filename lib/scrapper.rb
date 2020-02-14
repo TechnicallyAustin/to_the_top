@@ -1,3 +1,5 @@
+require_relative '../lib/rank.rb'
+require_relative '../lib/song.rb'
 require 'nokogiri'
 require 'pry'
 require 'open-uri'
@@ -24,8 +26,20 @@ class FinalScrapper
     end
     
     def rank
-        @@chart_arr.each { |i| @ranks << i[0] }
-        @ranks.each {|rank| rank = Rank.new(rank)}
+        row_count = 0
+        col_count = 0
+        @@chart_arr.each {|i| @ranks << i[0] }
+        @ranks.each { |i| i = Rank.new(rank)}
+        # @@chart_arr[row_count].each do |i|
+            # i[0] = Rank.new(rank)
+            # i[1] = Song.new(song)
+            # i[2] = Artist.new(name)
+            # i[3] = Peak.new(peak)
+            # i[4] = PeakDate.new(date)
+            # row_count += 1 
+            
+        binding.pry 
+
         
     end
 
@@ -62,4 +76,4 @@ class FinalScrapper
     # end
 end
 artists_scrape = FinalScrapper.new
-
+binding.pry 
