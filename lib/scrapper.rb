@@ -23,14 +23,14 @@ def rank
     @rank_arr = @rank.split("\n").delete_if { |i| i == "" || i == " "}
     @rank_arr 
     #retrieves rank for each chart element
-    binding.pry 
+    #binding.pry 
 end
 
 def title
     ### Done ###
     @title_arr = @title.split("\n").delete_if { |i| i == "" || i == " "}
     @title_arr
-    binding.pry 
+    #binding.pry 
     #retrieves song titles for each chart element and stores them in an array.
 end
 
@@ -39,7 +39,7 @@ def artist
     @artist_arr = @artist
     @split_artist = @artist_arr.split("\n")
     @final_arr = @split_artist.delete_if {|i| i == "" || i == " "}
-    binding.pry 
+    #binding.pry 
 
    
     #retrieves artist name for all chart elements 
@@ -52,7 +52,7 @@ def peak
    @peak_arr = @peak.split(" Peak  Position")
    @peak_arr 
    #retrieves peak position for all chart elements 
-   binding.pry 
+   #binding.pry 
 end
 
 def peak_date
@@ -62,7 +62,7 @@ def peak_date
     #retrieves peak dates for all chart elements 
     #stores each element in an array
     #=> peak_dates.count == 100
-    binding.pry
+    #binding.pry
 
     
 end
@@ -71,13 +71,12 @@ def chart_elements
   @charting_arr = @@doc.css("article.ye-chart-item").text.split("\n")
   @new_arr = @charting_arr.delete_if { |i| i == "" || i == " "}
     #lists each individual chart element
+    @chart_arr = [] 
     @new_arr.each_slice(5) do |i|
-    @new_arr = [] 
-    @new_arr << i 
+    @chart_arr << i 
     end
-    @new_arr
-    binding.pry 
-end
+   @chart_arr 
+    
 
 
 
@@ -86,8 +85,9 @@ end
 
 
 
-    ## ^ This list each chat item as a single array element. ##
-    binding.pry 
+
+   ## ^ This list each chat item as a single array element. ##
+   #binding.pry 
 
 
 end
@@ -98,12 +98,12 @@ def chart
    @entire_chart =  @charting 
    # Shows the entire chart printed out
    # Build this method using the other methods you created. you need to format this chart.
-   binding.pry 
+   #binding.pry 
 end
 
 end
 scrape = Scrape.new
-binding.pry
+#binding.pry
 #Nokogiri BB100 CSS Selectors
 # ------------------------
 # rank:  doc.css("div.ye-chart-item__rank").first.text
