@@ -72,9 +72,13 @@ def chart_elements
   @new_arr = @charting_arr.delete_if { |i| i == "" || i == " "}
     #lists each individual chart element
     @new_arr.each_slice(5) do |i|
-    @new_arr = [] @new_arr << i }
-    @new_arr 
+    @new_arr = [] 
+    @new_arr << i 
     end
+    @new_arr
+    binding.pry 
+end
+
 
 
 
