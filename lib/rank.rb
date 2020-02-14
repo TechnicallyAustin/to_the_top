@@ -1,4 +1,5 @@
 require_relative '../lib/scrapper.rb'
+require_relative '../lib/rank.rb'
 require_relative '../lib/module.rb'
 require 'pry'
 require 'nokogiri'
@@ -14,7 +15,7 @@ class Rank
 
 
     def self.all
-        @@all
+        @@all 
     end
-    
+
 end

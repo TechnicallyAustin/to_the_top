@@ -29,7 +29,7 @@ class FinalScrapper
         row_count = 0
         col_count = 0
         @@chart_arr.each {|i| @ranks << i[0] }
-        @ranks.each { |i| i = Rank.new(rank)}
+        @ranks
         # @@chart_arr[row_count].each do |i|
             # i[0] = Rank.new(rank)
             # i[1] = Song.new(song)
@@ -60,7 +60,7 @@ class FinalScrapper
 
     def peak_date
         @@chart_arr.each {|i| @peak_dates << i[4] }
-        @peak_dates.chomp
+        @peak_dates
         #remove the words "Peak Date"
     end 
 

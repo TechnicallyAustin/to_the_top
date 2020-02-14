@@ -12,7 +12,8 @@ def initialize(name)
     @peak_rank  
     @artist  
     @year 
-    @current_rank 
+    @current_rank
+    @artist = artist 
     
 end
 
@@ -28,5 +29,3 @@ def self.clear_all
 end
 
 end
-artist = Artist.new(Artist)
-binding.prty 
