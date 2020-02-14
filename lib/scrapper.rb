@@ -69,13 +69,23 @@ end
 
 def chart_elements
   @charting_arr = @@doc.css("article.ye-chart-item").text.split("\n")
-  @charting_arr.delete_if { |i| i == "" || i == " "}
+  @new_arr = @charting_arr.delete_if { |i| i == "" || i == " "}
     #lists each individual chart element
-    @new_arr = @charting_arr.each_slice(5) {|i| p i}
+    @new_arr.each_slice(5) do |i|
+    @new_arr = [] @new_arr << i }
+    @new_arr 
+    end
+
+
+
+
+
+
+
     ## ^ This list each chat item as a single array element. ##
-    # new_arr[0] == [Rank, Title, artist]
-    # new_arr[1] == [peak position, peak date, ]
     binding.pry 
+
+
 end
 
 
