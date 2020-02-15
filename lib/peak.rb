@@ -5,7 +5,7 @@ require 'nokogiri'
 require 'open-uri'
 
 class Peak
-attr_accessor :song, :artist, :peak_date, :rank
+attr_reader :song, :artist, :peak_date, :rank
 @@all = []
 def initialize(peak)
     @peak = peak 
@@ -19,7 +19,7 @@ end
  def chart_peaks
     FinalScrapper.peaks
  end
- 
+
 
 
 end

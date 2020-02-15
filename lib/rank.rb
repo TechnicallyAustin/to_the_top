@@ -6,14 +6,12 @@ require 'nokogiri'
 require 'open-uri'
 
 class Rank 
-    attr_accessor :artist, :peak, :peak_date, :song 
+    attr_reader :artist, :peak, :peak_date, :song 
     @@all = []
     def initialize(rank)
         @rank = rank 
         @@all << self 
-        
     end
-
 
     def self.all
         @@all 
@@ -22,6 +20,6 @@ class Rank
     def chart_ranks
         FinalScrapper.ranks
     end
-    
+
 
 end

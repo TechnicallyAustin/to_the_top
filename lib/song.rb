@@ -6,29 +6,48 @@ require 'open-uri'
 
 class Song
 @@all = []
-attr_accessor :name, :peak_rank, :peakdate, :artist, :year, :rank
+attr_reader :name, :peak_rank, :peakdate, :artist, :year, :rank
 def initialize(name)
     @name = name
-    @peak_rank  
-    @artist  
-    @year 
-    @current_rank
-    @artist = artist 
-    
+    @@all << self
 end
 
-def chart_songs
+def self.chart_songs
     FinalScrapper.songs
 end
 
+def create
+    chart_songs.each do |song|
+    song = Song.new(song)
+    end
+end
+def self.create
+    create
+end
 
+def self.create_songs
+    chart_songs.each do |item|
+        item = Song.new(item)
+    end
+   # binding.pry 
+end
+
+
+
+def self.song_groups
+    FinalScrapper.song_groups
+end
 
 def self.all
-    @@all
+    @@all 
 end
 
 def self.clear_all
     self.all = []
 end
 
-end
+# song = Song.new(song)
+
+song = Song.new(song)
+binding.pry 
+end 
