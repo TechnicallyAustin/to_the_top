@@ -6,7 +6,7 @@ require 'open-uri'
 
 class Song
 @@all = []
-attr_accessor :name, :peak_rank, :peak_date, :artist, :year, :current_rank
+attr_accessor :name, :peak_rank, :peakdate, :artist, :year, :rank
 def initialize(name)
     @name = name
     @peak_rank  
@@ -16,6 +16,16 @@ def initialize(name)
     @artist = artist 
     
 end
+
+# def self.create(name)
+#     @name = name 
+#     @@all << self 
+#     self.artist = 
+#     self.peak =
+#     self.peakdate = 
+#     self.rank =
+# end
+
 
 
 

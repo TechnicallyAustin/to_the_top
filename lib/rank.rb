@@ -11,6 +11,7 @@ class Rank
     def initialize(rank)
         @rank = rank 
         @@all << self 
+        
     end
 
 

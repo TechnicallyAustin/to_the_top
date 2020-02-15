@@ -6,74 +6,44 @@ require 'open-uri'
 
 class FinalScrapper
     attr_accessor :scrapper_name, :artist, :peak, :peak_date, :rank, :song, :chart_elements
-    @doc = Nokogiri::HTML(open("https://www.billboard.com/charts/decade-end/hot-100"))
-    @@charting = @doc.css("article.ye-chart-item").text.split("\n").delete_if { |i| i == " "|| i == "" }
-    @@chart_arr = [] 
-    @@charting.each_slice(5) { |i| @@chart_arr << i }
-   
+    @@Class_Constructor = []
     def initialize
-        @artists = []
-        @peaks = []
-        @peak_dates = []
-        @ranks = []
-        @songs = []
-    end
-
-    def chart_elements
-        @@charting.each_slice(5) { |i| @@chart_arr << i }
-        @@chart_arr 
-
-    end
-    
-    def rank
-        row_count = 0
-        col_count = 0
-        @@chart_arr.each {|i| @ranks << i[0] }
-        @ranks
-        # @@chart_arr[row_count].each do |i|
-            # i[0] = Rank.new(rank)
-            # i[1] = Song.new(song)
-            # i[2] = Artist.new(name)
-            # i[3] = Peak.new(peak)
-            # i[4] = PeakDate.new(date)
-            # row_count += 1 
-            
+        @doc = Nokogiri::HTML(open("https://www.billboard.com/charts/decade-end/hot-100"))
+        @charting = @doc.css("article.ye-chart-item").text.split("\n").delete_if { |i| i == " "|| i == "" }
+        @chart_arr = [] 
+        @charting.each_slice(5) { |i| @chart_arr << i }
+        @scrapped_ranks = []
+        @scrapped_songs = []
+        @scrapped_artists = []
+        @scrapped_peaks = []
+        @scrapped_peakdates = [] 
         binding.pry 
-
-        
     end
 
-    def song
-        @@chart_arr.each {|i| @songs << i[1] }
-        @songs 
-    end
+    #### Scrapper should have abastract class methods that can create a new object using self.
+    #### Scrapper should be a module?
+   
 
-    def aritst 
-        @@chart_arr.each {|i| @artists << i[2] }
-        @artists 
-    end
+
+
     
-    def peak
-        @@chart_arr.each {|i| @peaks << i[3] }
-        @peaks 
+    def self.chart_elements
+        row_counter = 0 
+        @chart_arr.each do |row|
+           
+                #this is the entire row. Inititializes objects here
+                # creates an artist object and associates the other elements to that artist.
+                @scrapped_ranks << row[0] #=> Rank.new(row[0])
+                @scrapped_songs << row[1] #=> Song.new(row[1])
+                @scrapped_artists << row[2] #=> Artist.new(row[2])
+                @scrapped_peaks << row[3] #=> Peak.new(row[3])
+                @scrapped_peakdates << row[4] #=> PeakDate.new(row[4])
+            
+            binding.pry 
+
+        end
     end
 
-    def peak_date
-        @@chart_arr.each {|i| @peak_dates << i[4] }
-        @peak_dates
-        #remove the words "Peak Date"
-    end 
-
-    # def class_builder
-    #     @@chart_arr.each do |row|
-    #         row[0] = Rank.new(row[0])
-    #         row[1] = Song.new(row[1])
-    #         row[2] = Artist.new(row[2])
-    #         row[3] = Peak.new(row[3])
-    #         row[4] = PeakDate.new(row[4])
-    #     end 
-    #     binding.pry 
-    # end
-end
-artists_scrape = FinalScrapper.new
+scrape = FinalScrapper.new
 binding.pry 
+end
