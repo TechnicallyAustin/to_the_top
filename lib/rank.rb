@@ -19,4 +19,9 @@ class Rank
         @@all 
     end
 
+    def chart_ranks
+        FinalScrapper.ranks
+    end
+    
+
 end

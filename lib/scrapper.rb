@@ -45,23 +45,23 @@ class FinalScrapper
             binding.pry 
         end
 
-    def self.artist 
+    def self.artists
         @@scrapped_artists
     end
     
-    def self.Song
+    def self.songs
         @@scrapped_songs
     end
 
-    def rank
+    def self.ranks
         @@scrapped_ranks
     end
 
-    def peak
+    def self.peaks
         @@scrapped_peaks
     end
 
-    def peak_dates
+    def self.peakdates
         @@scrapped_peakdates
     end
 

@@ -36,6 +36,8 @@ end
 
 
 
+
 end
+
 austin = Artist.new("Austin")
 binding.pry 

@@ -16,6 +16,10 @@ end
     @@all
  end
  
+ def chart_peaks
+    FinalScrapper.peaks
+ end
+ 
 
 
 end

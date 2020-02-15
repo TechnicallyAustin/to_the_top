@@ -17,16 +17,9 @@ def initialize(name)
     
 end
 
-# def self.create(name)
-#     @name = name 
-#     @@all << self 
-#     self.artist = 
-#     self.peak =
-#     self.peakdate = 
-#     self.rank =
-# end
-
-
+def chart_songs
+    FinalScrapper.songs
+end
 
 
 
