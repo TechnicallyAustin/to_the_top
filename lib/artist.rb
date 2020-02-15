@@ -27,10 +27,10 @@ def songs
 end
 
 
-def chart_elements_artist
-    main_chart = FinalScrapper.chart_elements
-    binding.pry 
+def chart_artists
+    FinalScrapper.artist
 end
+
 
 
 
